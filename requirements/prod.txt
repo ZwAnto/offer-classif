@@ -1,5 +1,5 @@
 pandas
 plotly
 spacy
-gensim
-glove_python_binary
+typer
+scikit-learn

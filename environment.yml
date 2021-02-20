@@ -1,7 +1,7 @@
 name: offer-classif
 dependencies:
-  - python==3.7
-  - pip==19.2.3
+  - python==3.8
+  - pip
   - pip:
     - -r requirements/dev.txt
     - -e .
