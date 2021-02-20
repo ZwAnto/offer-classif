@@ -68,5 +68,5 @@ python -m offerclassif.cli train <path to offers_train.json> <path to job_thesor
 ## Prediction
 ```
 conda activate <env_name>
-python -m offerclassif.cli predict <path to offers_test_sample.json> <path to job_thesorus.json> <model file> <Optionnal output file for predicitons>
+python -m offerclassif.cli predict <path to offers_test_sample.json> <path to job_thesorus.json> <model file> <Optionnal output file>
 ```
