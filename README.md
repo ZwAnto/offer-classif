@@ -56,8 +56,8 @@ python -m spacy download fr_core_news_md
 ## Developpement
 ```
 git clone https://github.com/ZwAnto/offer-classif.git
-make setup-conda-env
-make start-notebook # to start notebook server 
+make setup-conda-env # create an environment call offer-classif and register ipython kernel
+make start-notebook # to start a notebook server 
 ```
 # Utilisation
 ## Entrainement
