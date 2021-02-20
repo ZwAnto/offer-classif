@@ -1,5 +1,5 @@
 offerclassif
-==========
+============
 
 .. toctree::
    :maxdepth: 4

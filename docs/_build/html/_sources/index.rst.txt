@@ -1,8 +1,6 @@
 Welcome to offer-classif's documentation!
 ===========================================================
 
-README
-
 .. toctree::
    :maxdepth: 2
    :caption: Contents:

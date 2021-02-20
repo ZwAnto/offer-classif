@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>offer-classif &mdash; offer-classif 0.1.0 documentation</title>
+  <title>Classification d’offres d’emplois &mdash; offer-classif 0.1.0 documentation</title>
   
 
   
@@ -140,7 +140,7 @@
     
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>offer-classif</li>
+      <li>Classification d’offres d’emplois</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -159,8 +159,71 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="offer-classif">
-<h1>offer-classif<a class="headerlink" href="#offer-classif" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="classification-d-offres-d-emplois">
+<h1>Classification d’offres d’emplois<a class="headerlink" href="#classification-d-offres-d-emplois" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="idees">
+<h1>Idées<a class="headerlink" href="#idees" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li>Créer un embedding des offres basé sur la description et/ou le titre (tranformers, fastetxt/Glove ?, spacy) puis appliquer un modèle de classification<br /><strong>Amélioration</strong>: Entrainer le modèle d’embedding sur un corpus specialisé. J’ai eu des problèmes avec les modèles Spacy sur les termes anglais (ie data).</li>
+<li>Limitation générale: peu de texte pour décrire les postes dans le thesaurus</li>
+<li>Analyser la correlation entre les différents poste ?</li>
+</ul>
+</div>
+<div class="section" id="arborescence">
+<h1>Arborescence<a class="headerlink" href="#arborescence" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>├── docs                            # sphynx doc
+├── notebooks
+|   ├── 1. Exploration.ipynb        # Exploration notebook
+|   ├── 2. Embedding + TSNE.ipynb   # Embedding exploration
+|   └── 3. Prediction.ipynb         # Training and prediction notebook
+├── offerclassif
+|   ├── cli.py                      # CLI
+|   ├── data.py                     # Data related functions
+|   ├── embedding.py                # Embedding related functions
+|   └── utils.py                    # Miscelanous functions
+├── requirements
+|   ├── dev.txt                     # Dev requirements
+|   └── prod.txt                    # Prod requirements
+├── Makefile                    
+└── environnment.yml                # Conda environnement spec
+</pre></div>
+</div>
+</div>
+<div class="section" id="initialisation-de-l-environnement-conda">
+<h1>Initialisation de l’environnement conda<a class="headerlink" href="#initialisation-de-l-environnement-conda" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">--</span><span class="n">name</span> <span class="o">&lt;</span><span class="n">env_name</span><span class="o">&gt;</span> <span class="n">python</span><span class="o">=</span><span class="mf">3.8</span>
+<span class="n">conda</span> <span class="n">activate</span> <span class="o">&lt;</span><span class="n">env_name</span><span class="o">&gt;</span>
+
+<span class="n">pip</span> <span class="n">install</span> <span class="n">git</span><span class="o">+</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">ZwAnto</span><span class="o">/</span><span class="n">offer</span><span class="o">-</span><span class="n">classif</span><span class="o">.</span><span class="n">git</span>
+<span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">spacy</span> <span class="n">download</span> <span class="n">fr_core_news_md</span>
+</pre></div>
+</div>
+<div class="section" id="development">
+<h2>Development<a class="headerlink" href="#development" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">ZwAnto</span><span class="o">/</span><span class="n">offer</span><span class="o">-</span><span class="n">classif</span><span class="o">.</span><span class="n">git</span>
+<span class="n">make</span> <span class="n">setup</span><span class="o">-</span><span class="n">conda</span><span class="o">-</span><span class="n">env</span>
+<span class="n">make</span> <span class="n">start</span><span class="o">-</span><span class="n">notebook</span> <span class="c1"># to start notebook server </span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="utilisation">
+<h1>Utilisation<a class="headerlink" href="#utilisation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="entrainement">
+<h2>Entrainement<a class="headerlink" href="#entrainement" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">activate</span> <span class="o">&lt;</span><span class="n">env_name</span><span class="o">&gt;</span>
+<span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">offerclassif</span><span class="o">.</span><span class="n">cli</span> <span class="n">train</span> <span class="o">&lt;</span><span class="n">path</span> <span class="n">to</span> <span class="n">offers_train</span><span class="o">.</span><span class="n">json</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">path</span> <span class="n">to</span> <span class="n">job_thesorus</span><span class="o">.</span><span class="n">json</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">output</span> <span class="n">model</span> <span class="n">file</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="prediction">
+<h2>Prediction<a class="headerlink" href="#prediction" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">activate</span> <span class="o">&lt;</span><span class="n">env_name</span><span class="o">&gt;</span>
+<span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">offerclassif</span><span class="o">.</span><span class="n">cli</span> <span class="n">predict</span> <span class="o">&lt;</span><span class="n">path</span> <span class="n">to</span> <span class="n">offers_test_sample</span><span class="o">.</span><span class="n">json</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">path</span> <span class="n">to</span> <span class="n">job_thesorus</span><span class="o">.</span><span class="n">json</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">model</span> <span class="n">file</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">Optionnal</span> <span class="n">output</span> <span class="n">file</span> <span class="k">for</span> <span class="n">predicitons</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</div>
 </div>
 
 
