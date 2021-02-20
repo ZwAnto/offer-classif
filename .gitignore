@@ -108,3 +108,6 @@ ENV/
 # devcontainer settings
 .devcontainer
 docker-compose-dev.yaml
+
+*.zip
+data/**/*.json
