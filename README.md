@@ -1,12 +1,30 @@
 # Classification d'offres d'emplois
 
+- [Idées](#Idées)
+- [Approche](#Approche)
+- [Résultat](#Résultat)
+- [Arborescence](#Arborescence)
+- [Initialisation de l'environnement](#Initialisation-de-l'environnement)
+    * [Developpement](#Developpement)
+- [Utilisation](#Utilisation)
+    * [Entrainement](#Entrainement)
+    * [Prediction](#Prediction)
+
+  
 # Idées
 
-* Créer un embedding des offres basé sur la description et/ou le titre (tranformers, fastetxt/Glove ?, spacy) puis appliquer un modèle de classification  
-**Amélioration**: Entrainer le modèle d'embedding sur un corpus specialisé. J'ai eu des problèmes avec les modèles Spacy sur les termes anglais (ie data).
+* Créer un embedding des offres basé sur la description et/ou le titre (tranformers, fastetxt/Glove ?, spacy) puis appliquer un modèle de classification.
+**Amélioration**: Entrainer le modèle d'embedding sur un corpus specialisé. J'ai eu des problèmes avec les modèles Spacy français sur les termes anglais (ie data).
 
 * Limitation générale: peu de texte pour décrire les postes dans le thesaurus
 * Analyser la correlation entre les différents poste ?
+
+* dur de différencier les postes proches (ie postes de develeppement)
+    * **Piste**: Règles à base de mots clef pour certain poste ? (java, c++, .NET) 
+
+# Approche
+
+# Résultat
 
 # Arborescence
 ```
@@ -27,7 +45,7 @@
 └── environnment.yml                # Conda environnement spec
 ```
 
-# Initialisation de l'environnement conda
+# Initialisation de l'environnement
 ```
 conda create --name <env_name> python=3.8
 conda activate <env_name>
@@ -35,7 +53,7 @@ conda activate <env_name>
 pip install git+https://github.com/ZwAnto/offer-classif.git
 python -m spacy download fr_core_news_md
 ```
-## Development
+## Developpement
 ```
 git clone https://github.com/ZwAnto/offer-classif.git
 make setup-conda-env
