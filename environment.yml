@@ -1,4 +1,4 @@
-name: offer-classification
+name: offer-classif
 dependencies:
   - python==3.7
   - pip==19.2.3

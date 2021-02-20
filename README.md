@@ -1,4 +1,4 @@
-# offer-classification
+# offer-classif
 
 # Idées
 

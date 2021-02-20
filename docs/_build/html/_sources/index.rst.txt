@@ -1,4 +1,4 @@
-Welcome to offer-classification's documentation!
+Welcome to offer-classif's documentation!
 ===========================================================
 
 README

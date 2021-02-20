@@ -89,8 +89,8 @@ install-dev:
 	pip install -e .
 
 start-notebook:
-	$(CONDA_EXE) run -n offer-classification python -m jupyter notebook --NotebookApp.token=antoine
+	$(CONDA_EXE) run -n offer-classif python -m jupyter notebook --NotebookApp.token=antoine
 
 setup-conda-env:
 	$(CONDA_EXE) env create -f ./environment.yml > /dev/null
-	$(CONDA_EXE) run -n offer-classification python -m ipykernel install --user --name=offer-classification
+	$(CONDA_EXE) run -n offer-classif python -m ipykernel install --user --name=offer-classif

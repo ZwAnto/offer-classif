@@ -2,6 +2,6 @@
 Usage
 =====
 
-To use offer-classification in a project::
+To use offer-classif in a project::
 
     import cvmatching
