@@ -46,7 +46,7 @@ source_suffix = {'.rst': 'restructuredtext', '.md': 'markdown'}
 master_doc = 'index'
 
 # General information about the project.
-project = 'cv-matching'
+project = 'offer-classification'
 copyright = "Antoine HAMON"
 author = "Antoine HAMON"
 
@@ -128,7 +128,7 @@ latex_elements = {
 # [howto, manual, or own class]).
 latex_documents = [
     (master_doc, 'cvmatching.tex',
-     'cv-matching Documentation',
+     'offer-classification Documentation',
      'Antoine HAMON', 'manual'),
 ]
 
@@ -139,7 +139,7 @@ latex_documents = [
 # (source start file, name, description, authors, manual section).
 man_pages = [
     (master_doc, 'cvmatching',
-     'cv-matching Documentation',
+     'offer-classification Documentation',
      [author], 1)
 ]
 
@@ -151,7 +151,7 @@ man_pages = [
 #  dir menu entry, description, category)
 texinfo_documents = [
     (master_doc, 'cvmatching',
-     'cv-matching Documentation',
+     'offer-classification Documentation',
      author,
      'cvmatching',
      'One line description of project.',

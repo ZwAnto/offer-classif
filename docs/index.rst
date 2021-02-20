@@ -1,4 +1,4 @@
-Welcome to cv-matching's documentation!
+Welcome to offer-classification's documentation!
 ===========================================================
 
 .. toctree::

@@ -1,4 +1,4 @@
-name: cv-matching
+name: offer-classification
 dependencies:
   - python==3.7
   - pip==19.2.3
