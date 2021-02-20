@@ -1,2 +1,5 @@
-pandas==1.1.5 
-plotly==4.14.3
+pandas
+plotly
+spacy
+gensim
+glove_python_binary
