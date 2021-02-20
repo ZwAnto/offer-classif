@@ -1,15 +1,15 @@
 #!/usr/bin/env python
 
-"""Tests for `cvmatching` package."""
+"""Tests for `offerclassif` package."""
 
 
 import unittest
 
-from cvmatching import cvmatching
+from offerclassif import offerclassif
 
 
-class TestCvmatching(unittest.TestCase):
-    """Tests for `cvmatching` package."""
+class Testofferclassif(unittest.TestCase):
+    """Tests for `offerclassif` package."""
 
     def setUp(self):
         """Set up test fixtures, if any."""

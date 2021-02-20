@@ -4,4 +4,4 @@ Usage
 
 To use offer-classif in a project::
 
-    import cvmatching
+    import offerclassif

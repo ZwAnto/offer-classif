@@ -1,1 +1,1 @@
-"""Unit test package for cvmatching."""
+"""Unit test package for offerclassif."""

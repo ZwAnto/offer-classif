@@ -1,7 +1,7 @@
-cvmatching
+offerclassif
 ==========
 
 .. toctree::
    :maxdepth: 4
 
-   cvmatching
+   offerclassif

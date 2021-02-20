@@ -1,21 +1,21 @@
-cvmatching package
+offerclassif package
 ==================
 
 Submodules
 ----------
 
-cvmatching.cvmatching module
+offerclassif.offerclassif module
 ----------------------------
 
-.. automodule:: cvmatching.cvmatching
+.. automodule:: offerclassif.offerclassif
     :members:
     :undoc-members:
     :show-inheritance:
 
-cvmatching.data module
+offerclassif.data module
 ----------------------
 
-.. automodule:: cvmatching.data
+.. automodule:: offerclassif.data
     :members:
     :undoc-members:
     :show-inheritance:
@@ -24,7 +24,7 @@ cvmatching.data module
 Module contents
 ---------------
 
-.. automodule:: cvmatching
+.. automodule:: offerclassif
     :members:
     :undoc-members:
     :show-inheritance:
