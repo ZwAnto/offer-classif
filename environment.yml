@@ -1,0 +1,7 @@
+name: cv-matching
+dependencies:
+  - python==3.7
+  - pip==19.2.3
+  - pip:
+    - -r requirements/dev.txt
+    - -e .
