@@ -1,11 +1,20 @@
 
-import spacy
 import numpy as np
+import pandas as pd
+import spacy
 
 nlp = spacy.load("fr_core_news_md")
 
-def get_vectors(serie):
 
+def get_vectors(serie:pd.Series) -> np.array:
+    """Tranform text into vector using spacy model
+
+    Args:
+        serie (pd.Series): Pandas serie containing text.
+
+    Returns:
+        np.array: Embedding
+    """
     out = []
     for text in serie:
         assert isinstance(text, str)

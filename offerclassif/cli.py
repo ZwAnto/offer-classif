@@ -6,7 +6,6 @@ from joblib import load, dump
 
 from offerclassif.data import get_df, load_json
 from offerclassif.embedding import get_vectors
-from offerclassif.utils import P, format_prediction
 
 from sklearn.ensemble import ExtraTreesClassifier
 

@@ -10,6 +10,7 @@
 
 # Arborescence
 ```
+├── docs                            # sphynx doc
 ├── notebooks
 |   ├── 1. Exploration.ipynb        # Exploration notebook
 |   ├── 2. Embedding + TSNE.ipynb   # Embedding exploration
@@ -38,15 +39,16 @@ python -m spacy download fr_core_news_md
 ```
 git clone https://github.com/ZwAnto/offer-classif.git
 make setup-conda-env
+make start-notebook # to start notebook server 
 ```
 # Utilisation
 ## Entrainement
 ```
 conda activate <env_name>
-python -m offerclassif train <path to offers_train.json> <path to job_thesorus.json> <output model file>
+python -m offerclassif.cli train <path to offers_train.json> <path to job_thesorus.json> <output model file>
 ```
 ## Prediction
 ```
 conda activate <env_name>
-python -m offerclassif predict <path to offers_test_sample.json> <path to job_thesorus.json> <model file> <Optionnal output file for predicitons>
+python -m offerclassif.cli predict <path to offers_test_sample.json> <path to job_thesorus.json> <model file> <Optionnal output file for predicitons>
 ```

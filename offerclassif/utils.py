@@ -1,11 +1,18 @@
-import pprint
 
+import numpy as np
+import pandas as pd
 import plotly.express as px
 from plotly.subplots import make_subplots
+from sklearn.ensemble import ExtraTreesClassifier
 
 
-def plot_tsne(tsne, df):
-    
+def plot_tsne(tsne:np.array, df:pd.DataFrame):
+    """Function to plot TSNE
+
+    Args:
+        tsne (np.array): [description]
+        df (pd.DataFrame): [description]
+    """
     fig1 = px.scatter(x=tsne[:,0], y=tsne[:,1], color=df.sector_internal_label)
     fig2 = px.scatter(x=tsne[:,0], y=tsne[:,1], color=df.internal_label)
 
@@ -21,27 +28,18 @@ def plot_tsne(tsne, df):
     fig.show()
 
 
+def topNoob(model:ExtraTreesClassifier, classes:list, n:int=3) -> float:
+    """Compute top N accuracy using OOB proba
 
-def topNoob(model, classes, n=3):
-    
+    Args:
+        model (ExtraTreesClassifier): Sklearn ExtraTreesClassifier 
+        classes (list): Real labels/classes
+        n (int, optional): Number of prediction to consider (top n). Defaults to 3.
+
+    Returns:
+        float: Accuracy
+    """
     topn_pred = model.oob_decision_function_.argsort(axis=1)[:,-n:]
     topn_pred = [[ model.classes_[j] for j in i] for i in topn_pred]
 
     return sum([i in j for i,j in zip(classes, topn_pred)])/len(classes)
-
-
-
-class P(pprint.PrettyPrinter):
-  def _format(self, object, *args, **kwargs):
-    if isinstance(object, str):
-      if len(object) > 80:
-        object = object[:80] + '...'
-    return pprint.PrettyPrinter._format(self, object, *args, **kwargs)
-
-
-def format_prediction(samples, pred, thesaurus):
-
-    for i,j in zip(samples, pred):
-
-        jobs = filter(lambda x: x['internal_label'] == j, thesaurus)
-        i.update({"employments": [{"employment_id": i['id']} for i in jobs]})

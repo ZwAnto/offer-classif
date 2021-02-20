@@ -1,7 +1,7 @@
 import json 
 import pandas as pd
 
-def load_json(file):
+def load_json(file:str):
     """Json loading function
 
     Args:
@@ -17,8 +17,16 @@ def load_json(file):
     return data
 
 
-def get_df(offers, thesaurus=None):
+def get_df(offers:list, thesaurus:list=None) -> pd.DataFrame:
+    """Tranform offers loads from json file into DataFrame
 
+    Args:
+        offers (list): Offers list loads from json file
+        thesaurus (list, optional): Job thesorus load from json file. Defaults to None.
+
+    Returns:
+        pandas.DataFrame: Offers
+    """
     df = pd.DataFrame([{
         'id': i.get('employments',[{}])[0].get('employment_id', None),
         'description': i['description'],
