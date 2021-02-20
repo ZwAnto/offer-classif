@@ -110,3 +110,4 @@ docker-compose-dev.yaml
 
 *.zip
 data/**/*.json
+*.pkl
