@@ -64,7 +64,7 @@ coverage: ## check code coverage quickly with the default Python
 docs: ## generate Sphinx HTML documentation, including API docs
 	rm -f docs/cvmatching.rst
 	rm -f docs/modules.rst
-	rm docs/*.md
+	rm -f docs/*.md
 	cp *.md docs
 	sphinx-apidoc -o docs/ cvmatching
 	$(MAKE) -C docs clean
