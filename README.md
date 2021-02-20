@@ -8,23 +8,45 @@
 * Limitation générale: peu de texte pour décrire les postes dans le thesaurus
 * Analyser la correlation entre les différents poste ?
 
-# Environnement
-## Initialisation de l'environnement conda
+# Arborescence
 ```
+├── notebooks
+|   ├── 1. Exploration.ipynb        # Exploration notebook
+|   ├── 2. Embedding + TSNE.ipynb   # Embedding exploration
+|   └── 3. Prediction.ipynb         # Training and prediction notebook
+├── offerclassif
+|   ├── cli.py                      # CLI
+|   ├── data.py                     # Data related functions
+|   ├── embedding.py                # Embedding related functions
+|   └── utils.py                    # Miscelanous functions
+├── requirements
+|   ├── dev.txt                     # Dev requirements
+|   └── prod.txt                    # Prod requirements
+├── Makefile                    
+└── environnment.yml                # Conda environnement spec
+```
+
+# Initialisation de l'environnement conda
+```
+conda create --name <env_name> python=3.8
+conda activate <env_name>
+
+pip install git+https://github.com/ZwAnto/offer-classif.git
+python -m spacy download fr_core_news_md
+```
+## Development
+```
+git clone https://github.com/ZwAnto/offer-classif.git
 make setup-conda-env
-```
-## Lancement d'un notebook jupyter
-```
-make start-notebook
 ```
 # Utilisation
 ## Entrainement
 ```
-conda activate offer-classif
+conda activate <env_name>
 python -m offerclassif train <path to offers_train.json> <path to job_thesorus.json> <output model file>
 ```
 ## Prediction
 ```
-conda activate offer-classif
+conda activate <env_name>
 python -m offerclassif predict <path to offers_test_sample.json> <path to job_thesorus.json> <model file> <Optionnal output file for predicitons>
 ```
