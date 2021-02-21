@@ -52,6 +52,9 @@ blabla
 # Arborescence
 ```
 ├── docs                            # sphynx doc
+|   └── _build
+|       └── html
+|           └── index.html          # Page d'acceuil de la doc
 ├── notebooks
 |   ├── 1. Exploration.ipynb        # Exploration notebook
 |   ├── 2. Embedding + TSNE.ipynb   # Embedding exploration
