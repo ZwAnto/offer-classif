@@ -1,8 +1,9 @@
-# Classification d'offres d'emplois
+# Classification d'offres d'emploi
 
 - [Idées](#Idées)
 - [Approche](#Approche)
-- [Résultat](#Résultat)
+    * [Résultat](#Résultat)
+    * [Pistes d'améliorations](#Pistes-d'améliorations)
 - [Arborescence](#Arborescence)
 - [Initialisation de l'environnement](#Initialisation-de-l'environnement)
     * [Developpement](#Developpement)
@@ -13,8 +14,10 @@
   
 # Idées
 
-* Créer un embedding des offres basé sur la description et/ou le titre (tranformers, fastetxt/Glove ?, spacy) puis appliquer un modèle de classification.
+* Créer un embedding des offres basé sur la description et/ou le titre (fastetxt, Glove, spacy) puis appliquer un modèle de classification (type RandomForest).  
 **Amélioration**: Entrainer le modèle d'embedding sur un corpus specialisé. J'ai eu des problèmes avec les modèles Spacy français sur les termes anglais (ie data).
+* Utiliser des modèles type tranformers
+
 
 * Limitation générale: peu de texte pour décrire les postes dans le thesaurus
 * Analyser la correlation entre les différents poste ?
@@ -24,7 +27,23 @@
 
 # Approche
 
-# Résultat
+Mon approche à consisté à utiliser un modèle de work embedding (spacy) pour récupérer une représentation vectorielle des offres.  
+J'ai dans un premier temps comparé les représentations vectorielles selon qu'on l'on ai appliqué le modèle d'embedding sur le titre, la description ou le titre et le description.  
+J'ai ensuite tenté deux approches pour classifier les offres. 
+* La première constite à appliqué directement un classifieur (ExtraTrees) sur la représentation vectorielle pour prédire le champ `internal_label`. 
+* La deuxième approche à consisté à prédire d'abord le champ `sector_internal_label` (sur lequel nous avons de très bonne performance), puis de faire un deuxieme modèle qui prédit le champ `internal_label` à partir de la représentation vectorielle et des résultats du premier modèle. Tout cela dans le but de contraindre la classification pour qu'elle tienne compte du secteur.
+
+## Résultat
+
+La première observation que l'on peut faire est que le titre semble suffisant pour entrainer un modèle. Lorsque que l'on prend en compte la description, les performance des modèles sont moins bonnes.  
+Ensuite une autre observation est que les modèles semblent donner de bon résultat:
+
+* ~75% d'accuracy OOB sur la prédiction du champ `internal_label`
+* ~95% d'accuracy OOB sur la prédiction du champ `sector_internal_label`
+
+Les modèles ont cependant beaucoup de mal à distingué les postes similaires (ie Developpeur C++, Developpeur Java, ...).
+
+## Pistes d'améliorations
 
 # Arborescence
 ```
