@@ -28,22 +28,26 @@
 # Approche
 
 Mon approche à consisté à utiliser un modèle de work embedding (spacy) pour récupérer une représentation vectorielle des offres.  
-J'ai dans un premier temps comparé les représentations vectorielles selon qu'on l'on ai appliqué le modèle d'embedding sur le titre, la description ou le titre et le description.  
-J'ai ensuite tenté deux approches pour classifier les offres. 
+Après avoir fait une rapide exploration du jeu de données (cf `notebooks/1. Exploration.ipynb`) j'ai comparé les représentations vectorielles selon qu'on l'on ai appliqué le modèle d'embedding sur le titre, la description ou le titre et le description (cf `notebooks/2. Embedding + TSNE.ipynb`).  
+
+J'ai ensuite tenté deux approches pour classifier les offres (cf `notebooks/3. Prediction.ipynb`):
 * La première constite à appliqué directement un classifieur (ExtraTrees) sur la représentation vectorielle pour prédire le champ `internal_label`. 
 * La deuxième approche à consisté à prédire d'abord le champ `sector_internal_label` (sur lequel nous avons de très bonne performance), puis de faire un deuxieme modèle qui prédit le champ `internal_label` à partir de la représentation vectorielle et des résultats du premier modèle. Tout cela dans le but de contraindre la classification pour qu'elle tienne compte du secteur.
 
-## Résultat
+## Résultats
 
 La première observation que l'on peut faire est que le titre semble suffisant pour entrainer un modèle. Lorsque que l'on prend en compte la description, les performance des modèles sont moins bonnes.  
 Ensuite une autre observation est que les modèles semblent donner de bon résultat:
 
 * ~75% d'accuracy OOB sur la prédiction du champ `internal_label`
+* Plus de 90% de chances d'avoir le bon libellé dans le top 3.
 * ~95% d'accuracy OOB sur la prédiction du champ `sector_internal_label`
 
-Les modèles ont cependant beaucoup de mal à distingué les postes similaires (ie Developpeur C++, Developpeur Java, ...).
+Les modèles ont cependant beaucoup de mal à distingué les postes avec des intitulés similaires (ie Developpeur C++, Developpeur Java, ...).
 
-## Pistes d'améliorations
+## Pistes d'amélioration
+
+blabla
 
 # Arborescence
 ```
