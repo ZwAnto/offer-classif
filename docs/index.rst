@@ -5,8 +5,7 @@ Welcome to offer-classif's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-   installation
-   usage
+   README
    modules
 
 
