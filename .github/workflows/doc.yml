@@ -1,0 +1,50 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+# Controls when the action will run. 
+on:
+  # Triggers the workflow on push or pull request events but only for the master branch
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+    
+    defaults:
+      run:
+        shell: bash -l {0}
+        
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2 
+            
+      - uses: conda-incubator/setup-miniconda@v2
+        with:
+          activate-environment: offer-classif
+          environment-file: environment.yml
+          
+      - name: set-up env
+        run: python -m spacy download fr_core_news_md
+
+      - name: build doc
+        run: make docs
+          
+      - name: deploy doc
+        run: |
+          touch docs/_build/html/.nojekyll
+          git add -f docs/_build
+          git config user.name "GH actions"
+          git config user.email "<>"
+          git commit -m "doc build"
+          git push origin `git subtree split --prefix docs/_build/html master`:gh-pages --force
