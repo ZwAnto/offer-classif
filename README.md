@@ -45,7 +45,7 @@ Les modèles ont cependant beaucoup de mal à distinguer les postes avec des int
 
 ## Pistes d'amélioration
 
-
+Une piste qu'il aurait été intéressant de creuser est l'intégration d'un indicateur TF-IDF pour pondérer les mots dans les l'embedding du titre/description pour améliorer la représentation vectorielle.  
 
 # Arborescence
 ```
