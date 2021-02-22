@@ -22,7 +22,7 @@ def plot_tsne(tsne:np.array, df:pd.DataFrame):
     _ = [fig.add_trace(t, row=1, col=2) for t in fig2['data']]
 
 
-    fig.update_layout(width=1000, height=500, title='Violin per feature', title_x=0.5)
+    fig.update_layout(width=1000, height=500, title_x=0.5)
     fig.update_xaxes(matches=None)
     fig.update_yaxes(matches=None)
     fig.show()
