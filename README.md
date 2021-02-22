@@ -80,6 +80,7 @@ python -m spacy download fr_core_news_md
 ## Developpement
 ```
 git clone https://github.com/ZwAnto/offer-classif.git
+cd offer-classif 
 make setup-conda-env # create an environment named offer-classif and register ipython kernel
 
 conda activate <env_name>
